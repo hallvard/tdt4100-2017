@@ -1,7 +1,0 @@
-// String methods
-String s = "Hallvard";
-if (s.startsWith("Hal")) {
-	System.out.println(s.substring(0, 3) + "9000");
-} else {
-	System.out.println("zzz");	
-}

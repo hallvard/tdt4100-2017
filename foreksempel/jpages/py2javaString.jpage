@@ -1,0 +1,67 @@
+// String methods
+
+//Checks the substring of a string
+String s = "Hallvard";
+if (s.startsWith("Hal")) {
+	System.out.println(s.substring(0, 3) + "9000");
+} else {
+	System.out.println("zzz");	
+}
+
+//Check if a string is a substring of another string
+
+String str = "objektorientert programmering"; 
+String sub = "programmering"; 
+
+if (str.contains(sub)){
+	System.out.println(sub + " er en substring av " + str); 
+}
+
+
+//Split a string into two parts
+String email = "student@ntnu.no"; 
+String[] parts = email.split("@"); 
+String studentName = parts[0]; 
+String domain = parts[1]; 
+
+System.out.println(studentName); 
+System.out.println(domain); 
+
+
+//Removes all whitespace from a given string
+String str = "Java blir veldig goy"; 
+
+System.out.println(str.replace(" ", "")); //Can be done with any characters
+
+//Find the first index of a given string
+System.out.println("java".indexOf("a"))
+
+
+
+//Check if a string is palindrome
+String str = "agnes i senga"; 
+boolean isPalindrome = true; 
+  int n = str.length();
+  for( int i = 0; i < n/2; i++ )
+      if (str.charAt(i) != str.charAt(n-i-1)) {
+      	isPalindrome = false;
+  
+}
+System.out.println("Er palindrom: " + isPalindrome); 
+
+
+//Check if a string is palindrome while ignoring case
+String str = "Agnes i senga"; 
+boolean isPalindrome = true; 
+int n = str.length();
+for( int i = 0; i < n/2; i++ )
+    if (Character.toLowerCase(str.charAt(i)) != Character.toLowerCase(str.charAt(n-i-1))) {
+    	isPalindrome = false;
+
+}
+System.out.println("Er palindrom: " + isPalindrome); 
+
+
+
+
+
