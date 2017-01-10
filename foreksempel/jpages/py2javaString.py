@@ -38,7 +38,7 @@ tekst = "agnes i senga"
 isPalindrome = True
 
 n = len(tekst)
-for i in range(0, n/2):
+for i in range(0, n//2):
     if tekst[i] != tekst[n-i-1]:
         isPalindrome = False
         
@@ -51,7 +51,7 @@ tekst = "Agnes i senga"
 isPalindrome = True
 
 n = len(tekst)
-for i in range(0, n/2):
+for i in range(0, n//2):
     if tekst[i].lower() != tekst[n-i-1].lower():
         isPalindrome = False
         
