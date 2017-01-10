@@ -2,7 +2,6 @@
 list = ["hei", "paa", "deg", "hva", "skjer"]
 print(list)  # Printer listen
 
-
 #Diverse listeoperasjoner
 print(list[0])  # frste element
 print(list[-1])  # siste element
