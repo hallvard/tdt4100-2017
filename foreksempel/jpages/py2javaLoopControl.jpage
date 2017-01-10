@@ -1,0 +1,85 @@
+// for-løkke eksempel 1: intro til for-løkke
+for (int i = 0; i < 10; i++) { 
+	// opprette variabel; stopp-condition; hva som gjøres hver iterasjon
+	// -- eller ++ er snarveier for -=1 eller +=1. Øke eller minke med 1.
+	System.out.println(i);
+}
+
+// for-løkke eksempel 2: øke telleren med mer enn 1
+// kan også redusere telleren som man vil, og ha en passende stopp-condition
+System.out.println("Alle tall i fem-gangen under 30 er:");
+for (int i = 5; i < 30; i += 5) {
+	System.out.println(i);
+}
+
+
+// for-løkke eksempel 3: andre ting enn integers og telling
+// stoppe når s blir "XXX". En "X" blir lagt til hver iterasjon
+for (String s = "X"; !s.equals("XXX"); s += "X") {
+	System.out.println("Alt er greit! Ordet er " + s);
+}
+System.out.println("Stoppet nå.");
+
+
+// for-løkke eksempel 4: for-each løkke
+// skrive ut alle ord i et array (Python: liste)
+// bruker array, se intro til lister/ TODO
+String[] progSpraak = {"Python", "C++", "Java", "PHP"};
+for (String spraak : progSpraak) {
+	System.out.println(spraak);
+}
+
+
+// for-løkke eksempel 5: bruke liste-lengden
+String[] personer = {"Cecilie", "Vegard", "Vemund", "Nils", "Ragnar"};
+for (int i = 0; i < personer.length; i++) {
+	System.out.println(personer[i] + " er på plass " + Integer.toString(i+1));
+}
+
+
+// for-løkke eksempel 6: break
+// brukes helt likt i while-løkker
+// lete gjennom en liste helt til vi finner Gløshaugen
+String[] plasser = {"Dragvoll", "St. Olav", "Tunga", "Kalvskinnet", "Gløshaugen", "Gjøvik"};
+System.out.println("Leter etter Gløshaugen");
+for (String plass : plasser) {
+	if (plass.equals("Gløshaugen")) {
+		break;
+	}
+	System.out.println("Leter fremdeles... er på " + plass + " nå.");
+}
+System.out.println("Jeg fant!");
+
+
+// for-løkke eksempel 7: nestede løkker
+String[] bokstaver = {"A", "B", "C", "D", "E", "F", "G", "H"};
+System.out.println("Her er alle rutene i et sjakkbrett:");
+for (int i = 0; i < 8; i++) {
+	for (int j = 0; j < 8; j++) {
+		System.out.println(bokstaver[i] + Integer.toString(j+1));
+	}
+}
+
+// while-løkke eksempel 1: intro til while-løkke
+int timer = 5;
+while (timer > 0) {
+	System.out.println("Tid igjen: " + Integer.toString(timer));
+	timer--;  
+}
+System.out.println("Tiden er ute!");
+
+
+// while-løkke eksempel 2: uendelig løkke, med break
+// brukes stort sett bare med input e.l., men det dropper vi her
+// så eksempelet er bare å skrive ut noe helt til vi har gjort det 3 ganger
+// bare for å illustrere uendelige løkker
+int teller = 0;
+while (true) {
+    System.out.println("Java er best, ingen protest!");
+    teller++;
+    if (teller == 3)  {
+        break;
+    }
+}
+
+
