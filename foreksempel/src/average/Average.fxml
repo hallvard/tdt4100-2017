@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="average.AverageController">
+   <children>
+      <TextField fx:id="acceptValueInput" promptText="new value" />
+      <Button mnemonicParsing="false" onAction="#handleAcceptValue" text="acceptValue" />
+      <Label fx:id="averageOutput" text="&lt;no average yet&gt;" />
+   </children>
+</HBox>

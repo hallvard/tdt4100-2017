@@ -4,15 +4,15 @@ public class DownCounter {
 
 	int counter;
 	
-	DownCounter(int initCounter) {
+	public DownCounter(int initCounter) {
 		counter = initCounter;
 	}
 	
-	boolean isFinished() {
+	public boolean isFinished() {
 		return counter == 0;
 	}
 	
-	void countDown() {
+	public void countDown() {
 		if (! isFinished()) {
 			counter = counter - 1;
 		}
