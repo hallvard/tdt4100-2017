@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="stateandbehavior.LineEditorController">
+	<Text fx:id="toStringOutput" text=""/>
+	<HBox>
+		<Button text="left()" onAction="#handleLeft"/>
+		<Button text="right()" onAction="#handleRight"/>
+		<Button text="deleteLeft()" onAction="#handleDeleteLeft"/>
+		<Button text="deleteRight()" onAction="#handleDeleteRight"/>
+	</HBox>
+	<HBox>
+		<TextField fx:id="insertStringStringInput" promptText="string"/>
+		<Button text="insertString(string)" onAction="#handleInsertString"/>
+	</HBox>
+</VBox>
