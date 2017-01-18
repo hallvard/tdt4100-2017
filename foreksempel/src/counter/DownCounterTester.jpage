@@ -1,2 +1,0 @@
-counter.DownCounter counter = new counter.DownCounter(3);
-System.out.println(counter.isFinished());

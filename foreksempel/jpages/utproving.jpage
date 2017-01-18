@@ -1,0 +1,2 @@
+String name = "Hallvard";
+System.out.println(name.substring(4, 6) + "nn" + name.substring(5));
