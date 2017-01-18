@@ -56,16 +56,16 @@ public class LocationController {
 		updateView();
 	}
 	
-	@FXML
-	TextField xInput;
-
-	@FXML
-	TextField yInput;
-	
-	
-	/*@FXML
-	void handleMoveXY() {
-		location.move(Integer.valueOf(xInput.getText()), Integer.valueOf(yInput.getText()));
-		updateView();
-	}*/
+//	@FXML
+//	TextField xInput;
+//
+//	@FXML
+//	TextField yInput;
+//	
+//	
+//	@FXML
+//	void handleMoveXY() {
+//		location.move(Integer.valueOf(xInput.getText()), Integer.valueOf(yInput.getText()));
+//		updateView();
+//	}
 }
