@@ -33,7 +33,8 @@ public class RectangleController {
 		updateRectangle(rect1, toStringOutput1, fxRect1);
 		updateRectangle(rect2, toStringOutput2, fxRect2);
 		updateRectangle(rect1.union(new Rectangle()).union(rect2), toStringUnionOutput, fxUnionRect);
-		updateRectangle(rect1.union(new Rectangle()).intersection(rect2), toStringIntersectionOutput, fxIntersectionRect);
+		//Dersom du gjor ekstraoppgaven kan du fjerne kommentaren fra denne linja
+		//updateRectangle(rect1.union(new Rectangle()).intersection(rect2), toStringIntersectionOutput, fxIntersectionRect);
 	}
 	
 	void updateRectangle(Rectangle rect, Text toStringOutput, javafx.scene.shape.Rectangle fxRect) {
