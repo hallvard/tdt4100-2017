@@ -26,10 +26,10 @@ public class LocationController {
 	
 	void updateView() {
 		toStringOutput.setText(location.toString());
-		line1.setLayoutX(location.x);
-		line1.setLayoutY(location.y);
-		line2.setLayoutX(location.x);
-		line2.setLayoutY(location.y);
+		line1.setLayoutX(location.getX());
+		line1.setLayoutY(location.getY());
+		line2.setLayoutX(location.getX());
+		line2.setLayoutY(location.getY());
 	}
 	
 	@FXML
@@ -62,9 +62,10 @@ public class LocationController {
 	@FXML
 	TextField yInput;
 	
-	@FXML
+	
+	/*@FXML
 	void handleMoveXY() {
 		location.move(Integer.valueOf(xInput.getText()), Integer.valueOf(yInput.getText()));
 		updateView();
-	}
+	}*/
 }

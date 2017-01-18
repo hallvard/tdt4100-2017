@@ -17,11 +17,13 @@
 		<Button text="up()" onAction="#handleUp"/>
 		<Button text="down()" onAction="#handleDown"/>
 	</HBox>
+	<!--  
 	<HBox>
 		<TextField fx:id="xInput" promptText="x"/>
 		<TextField fx:id="yInput" promptText="y"/>
 		<Button text="move(x, y)" onAction="#handleMoveXY"/>
 	</HBox>
+	-->
 	<Pane prefWidth="100" prefHeight="100" translateX="10" translateY="10">
 		<Line fx:id="line1" layoutX="0" layoutY="0" startX="0" startY="0" endX="2" endY="0"/>
 		<Line fx:id="line2" layoutX="0" layoutY="0" startX="0" startY="-2" endX="0" endY="2"/>
