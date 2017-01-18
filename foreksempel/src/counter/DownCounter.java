@@ -17,4 +17,9 @@ public class DownCounter {
 			counter = counter - 1;
 		}
 	}
+	
+	public static void main(String[] args) {
+		DownCounter counter1 = new DownCounter(5);
+		System.out.println(counter1.isFinished());
+	}
 }
