@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.shape.*?>
+<?import javafx.scene.control.TextArea?>
+
+<HBox spacing="15" style="-fx-padding: 10px 10px 10px 10px" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encapsulation.PersonController">
+	
+	<VBox minWidth="400" spacing="15">	    
+	    <Text text="Person">
+	    	<font>
+                <Font name="Arial Black" size="16.0" />
+            </font>
+	    </Text>
+	    
+	    <HBox spacing="10">
+	    	<Label text="Name" />
+	    	<TextField fx:id="getNameTextField" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<Label text="Gender" />
+	    	<TextField fx:id="getGenderTextField" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<Label text="Email" />
+	    	<TextField fx:id="getEmailTextField" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<Label text="SSN" />
+	    	<TextField fx:id="getSSNTextField" />
+	    </HBox>
+		
+		<HBox spacing="10" style="-fx-border-color: transparent transparent black transparent; -fx-padding: 0px 0px 10px 0px;">
+	    	<Label text="Birthday" />
+	    	<DatePicker fx:id="getBirthdayDatePicker" />
+	    </HBox>
+	    
+	    <Text text="Manipulate">
+	    	<font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+	    </Text>
+	    
+	    <HBox spacing="10">
+    		<Label text="Name" />
+    		<TextField fx:id="setNameTextField" />
+    		<Button onAction="#onSetName" text="Set name" />
+    	</HBox>
+    	
+    	<HBox spacing="10">
+    		<Label text="Gender" />
+    		<TextField fx:id="setGenderTextField" />
+    		<Button onAction="#onSetGender" text="Set gender" />
+    	</HBox>
+    	
+    	<HBox spacing="10">
+    		<Label text="Email" />
+    		<TextField fx:id="setEmailTextField" />
+    		<Button onAction="#onSetEmail" text="Set email" />
+    	</HBox>
+    	
+    	<HBox spacing="10">
+    		<Label text="SSN" />
+    		<TextField fx:id="setSSNTextField" />
+    		<Button onAction="#onSetSSN" text="Set SSN" />
+    	</HBox>
+    	
+    	<HBox spacing="10">
+    		<Label text="Birthday" />
+    		<DatePicker fx:id="setBirthdayDatePicker" />
+    		<Button onAction="#onSetBirthday" text="Set birthday" />
+    	</HBox>
+		
+	</VBox>
+	
+	<VBox>
+		<Text text="Exception:">
+	    	<font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+	    </Text>
+		<TextArea fx:id="exceptionTextArea" prefRowCount="30" />
+	</VBox>
+</HBox>

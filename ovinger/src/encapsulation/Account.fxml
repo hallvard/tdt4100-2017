@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.shape.*?>
+
+<HBox spacing="15" style="-fx-padding: 10px 10px 10px 10px" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encapsulation.AccountController">
+	
+	<VBox spacing="15">
+	
+    	<VBox spacing="15" style="-fx-border-color: transparent transparent black transparent; -fx-padding: 0px 0px 10px 0px; -fx-border-width: 2;">
+		    <HBox spacing="10">
+		    	<Label text="Balance" />
+		    	<TextField fx:id="newAccountBalanceTextField" />
+		    </HBox>
+		    
+		    <HBox spacing="10">
+		    	<Label text="Interest" />
+		    	<TextField fx:id="newAccountInterestRateTextField" />
+		    </HBox>
+    		
+    		<Button onAction="#handleNewAccount" text="New account" />  
+	    </VBox>
+	    
+	    <Text text="Account">
+	    	<font>
+                <Font name="Arial Black" size="16.0" />
+            </font>
+	    </Text>	    
+	    
+	    <HBox spacing="10">
+	    	<Label text="Balance" />
+	    	<TextField fx:id="getBalanceTextField" />
+	    </HBox>
+	    
+		
+		<HBox spacing="10" style="-fx-border-color: transparent transparent gray transparent; -fx-padding: 0px 0px 10px 0px; -fx-border-style: dotted;">
+	    	<Label text="Interest" />
+	    	<TextField fx:id="getInterestRateTextField" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<TextField fx:id="depositTextField" />
+	    	<Button onAction="#handleDeposit" text="Deposit" fx:id="depositButton" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+         	<TextField fx:id="withdrawTextField" />
+         	<Button onAction="#handleWithdrawal" text="Withdraw" fx:id="withdrawButton" />
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<TextField fx:id="setInterestRateTextField" />
+	    	<Button onAction="#handleSetInterestRate" text="Set new interest rate" fx:id="setInterestRateButton" />
+	    </HBox>
+	    
+    	<Button onAction="#handleAddInterest" text="Add interest" fx:id="addInterestButton" />
+		
+	</VBox>
+	
+	<VBox>
+		<Label text="Exception" />
+    	<TextArea fx:id="exceptionTextArea" prefRowCount="30" />
+	</VBox>
+</HBox>
