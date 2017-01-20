@@ -21,14 +21,12 @@ public class Counter {
 	}
 	
 	public static void main(String[] args) {
-		Counter counter = new Counter(3);
-		System.out.println(counter.getCounter());
-		System.out.println(counter.count());
-		System.out.println(counter.getCounter());
-		System.out.println(counter.count());
-		System.out.println(counter.getCounter());
-		System.out.println(counter.count());
-		System.out.println(counter.getCounter());
-		System.out.println(counter.count());
+		Counter counter1 = new Counter(15);
+		Counter counter2 = counter1;
+		System.out.println(counter1.getCounter());
+		while (! counter1.count()) {
+			System.out.println(counter2.getCounter());
+		}
+		System.out.println(counter2.getCounter());
 	}
 }
