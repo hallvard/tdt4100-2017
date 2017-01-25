@@ -1,0 +1,2 @@
+class Student {	int id;	String name;	int age;		// Konstruktør	public Student(String name, int age) {		this.id = (int) (Math.random() * 50 + 1); // Tilfeldig tall i [1, ..., 100]		this.name = name;		this.age = age;	}}Student arne = new Student("Arne", 18);
+System.out.println("Studenten er " + arne.age + " år gammel.");
