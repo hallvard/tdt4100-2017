@@ -6,7 +6,7 @@ public class AccountTest extends TestCase {
 
 	private double epsilon = 0.000001d;
 	
-	Account account;
+	private Account account;
 
 	@Override
 	protected void setUp() throws Exception {
@@ -76,10 +76,10 @@ public class AccountTest extends TestCase {
 	public void testWithdrawTooLargeAmount() {
 		try {
 			account.withdraw(150);
-			fail("Expected IllegalStateException here");
+			fail("Expected IllegalArgumentException here");
 		} catch (Exception e){
 			assertEquals(100.0d, account.getBalance(), epsilon);
-			assertTrue(e instanceof IllegalStateException);
+			assertTrue(e instanceof IllegalArgumentException);
 		}
 	}
 }
