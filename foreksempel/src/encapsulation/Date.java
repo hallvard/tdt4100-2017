@@ -31,7 +31,7 @@ public class Date {
 		checkDayMonth(day, this.month);
 		checkLeapYear(day, this.month, this.year);
 		this.day = day;
-	}
+	} 
 	
 	private void checkDayMonth(int day, int month) {
 		if (day > monthLengths[month - 1]) {
