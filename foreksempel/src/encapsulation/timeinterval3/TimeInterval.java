@@ -16,22 +16,34 @@ public class TimeInterval {
 		return String.format("%02d:%02d-%02d:%02d", getStartHour(), getStartMin(), getEndHour(), getEndMin());
 	}
 
-	private void checkInteger(int min, int max, int value, String prop) {
+	static void checkInteger(int min, int max, int value, String prop) {
 		if (value < min || value > max) {
 			throw new IllegalArgumentException(prop + " must be between " + min + " and " + max + ", but was " + value);
 		}
 	}
 	
+	public TimePoint getStart() {
+		return new TimePoint(start.getHour(), start.getMin());
+	}
+
+	public TimePoint getEnd() {
+		return end;
+	}
+	
 	public int getStartHour() {
+		return start.getHour();
 	}
 	
 	public int getStartMin() {
+		return start.getMin();
 	}
 	
 	public int getEndHour() {
+		return end.getHour();
 	}
 	
 	public int getEndMin() {
+		return end.getMin();
 	}
 
 	private int computeDuration(int startHour, int startMin, int endHour, int endMin) {
@@ -47,7 +59,9 @@ public class TimeInterval {
 	public static void main(String[] args) {
 		// lag tidsintervall tilsvarende tirsdagsforelesningen
 		TimeInterval timeInterval = new TimeInterval(14, 15, 16, 00);
-		System.out.println(timeInterval);
+		System.out.println(timeInterval.getStart());
+		System.out.println(timeInterval.getStart().getHour());
+		System.out.println(timeInterval.getEnd());
 		// beregn lengden, skal bli 2 * 45 + 15 = 105
 		System.out.println(timeInterval.getDuration());
 		// skal utløse unntak
