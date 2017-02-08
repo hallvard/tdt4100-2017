@@ -11,10 +11,15 @@ public class File {
 		if (parentFolder == null) {
 			throw new IllegalArgumentException("A file must be in a folder");
 		}
-		this.parentFolder = parentFolder;
+		this.parentFolder = parentFolder;		
 		parentFolder.addFile(this);
 	}
-	
+
+	// flytter denne mappa over i targetFolder
+	public void move(Folder targetFolder) {
+	}
+
+	// denne skal utvides til å vise hele stien fra rot-noden og ned
 	@Override
 	public String toString() {
 		return name;
