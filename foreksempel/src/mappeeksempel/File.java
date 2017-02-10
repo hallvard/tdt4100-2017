@@ -18,7 +18,10 @@ public class File {
 	public Folder getParentFolder() {
 		return parentFolder;
 	}
-	
+	public String getName() {
+		return name;
+	}
+
 	// flytter denne mappa over i targetFolder
 	public void move(Folder targetFolder) {
 		if (parentFolder != null) {

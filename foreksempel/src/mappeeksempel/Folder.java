@@ -67,6 +67,9 @@ public class Folder {
 			parentFolder.subFolders.remove(this);
 		}
 		if (targetFolder != null) {
+			if (this.contains(targetFolder)) {
+				throw new IllegalArgumentException("Trying to make circular structure");
+			}
 			targetFolder.subFolders.add(this);
 		}
 		parentFolder = targetFolder;
@@ -74,10 +77,28 @@ public class Folder {
 	
 	// returnerer første fil med angitt navn eller endelse
 	public File findFirst(String base, String ext) {
-		// TODO
+		for (File file : files) {
+			if (matchName(file.getName(), base, ext)) {
+				return file;
+			}
+		}
+		for (Folder folder : subFolders) {
+			File found = folder.findFirst(base, ext);
+			if (found != null) {
+				return found;
+			}
+		}
 		return null;
 	}
 
+	private static boolean matchName(String name, String base, String ext) {
+		int pos = name.lastIndexOf('.');
+		String nameBase = name.substring(0, pos);
+		String nameExt = name.substring(pos + 1);
+		return (base == null || nameBase.equals(base)) &&
+				(ext == null || nameExt.equals(ext));
+	}
+	
 	// returnerer alle filene med angitt navn eller endelse
 	public Collection<File> findAll(String base, String ext) {
 		// TODO
@@ -109,6 +130,9 @@ public class Folder {
 		folder1.move(tmp);
 		System.out.println("Skulle være /tmp/Users/, var " + folder1.toString());
 		myProfileFile.move(tmp);
+
 		System.out.println("Skulle være /tmp/profile.png, var " + myProfileFile.toString());
+		System.out.println("Skulle være /tmp/profile.png, var " + root.findFirst(null,  "png"));
+		System.out.println("Skulle være null, var " + root.findFirst(null,  "ping"));
 	}
 }
