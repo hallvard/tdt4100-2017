@@ -15,6 +15,10 @@ public class File {
 		parentFolder.addFile(this);
 	}
 
+	public Folder getParentFolder() {
+		return parentFolder;
+	}
+	
 	// flytter denne mappa over i targetFolder
 	public void move(Folder targetFolder) {
 	}
@@ -22,7 +26,7 @@ public class File {
 	// denne skal utvides til å vise hele stien fra rot-noden og ned
 	@Override
 	public String toString() {
-		return name;
+		return parentFolder.toString() + name;
 	}
 
 }

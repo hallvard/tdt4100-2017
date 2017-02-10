@@ -26,7 +26,11 @@ public class Folder {
 	// denne skal utvides til å vise hele stien fra rot-noden og ned
 	@Override
 	public String toString() {
-		return name;
+		if (parentFolder == null) {
+			return "/";
+		}
+		String parentToString = parentFolder.toString();
+		return parentToString + name + "/";
 	}
 
 	// denne brukes av File, for å legge seg til parent-mappa
@@ -37,8 +41,19 @@ public class Folder {
 
 	// sjekker om fileOrFolder ligger inni denne mappa
 	// hvis recursive er true, så sjekkes til bunns i mappe-treet
-	public boolean contains(Object fileOrFolder, boolean recursive) {
-		// TODO
+	public boolean contains(Object fileOrFolder) {
+		Folder current = null;
+		if (fileOrFolder instanceof Folder) {
+			current = ((Folder) fileOrFolder);
+		} else if (fileOrFolder instanceof File) {
+			current = ((File) fileOrFolder).getParentFolder();			
+		}
+		while (current != null) {
+			if (current == this) {
+				return true;
+			}
+			current = current.parentFolder;
+		}
 		return false;
 	}
 	
@@ -62,7 +77,13 @@ public class Folder {
 		Folder root = new Folder("", null);
 		File rootFile = new File("README.txt", root);
 		Folder folder1 = new Folder("Users", root);
-		Folder home1 = new Folder("hal", root);
-		File myProfileFile = new File("profile.png", home1);		
+		Folder home1 = new Folder("hal", folder1);
+		File myProfileFile = new File("profile.png", home1);	
+		
+		System.out.println("Skulle være /, var " + root.toString());
+		System.out.println("Skulle være /README.TXT, var " + rootFile.toString());
+		System.out.println("Skulle være /Users/, var " + folder1.toString());
+		System.out.println("Skulle være /Users/hal/, var " + home1.toString());
+		System.out.println("Skulle være /Users/hal/profile.png, var " + myProfileFile.toString());
 	}
 }
