@@ -38,9 +38,13 @@ public class Folder {
 	void addFile(File file) {
 		this.files.add(file);
 	}
+	// denne brukes av File, for å fjerne seg fra parent-mappa
+	// ingen synlighetsmodifikator betyr pakke-synlighet
+	void removeFile(File file) {
+		this.files.remove(file);
+	}
 
 	// sjekker om fileOrFolder ligger inni denne mappa
-	// hvis recursive er true, så sjekkes til bunns i mappe-treet
 	public boolean contains(Object fileOrFolder) {
 		Folder current = null;
 		if (fileOrFolder instanceof Folder) {
@@ -59,6 +63,13 @@ public class Folder {
 	
 	// flytter denne mappa over i targetFolder
 	public void move(Folder targetFolder) {
+		if (parentFolder != null) {
+			parentFolder.subFolders.remove(this);
+		}
+		if (targetFolder != null) {
+			targetFolder.subFolders.add(this);
+		}
+		parentFolder = targetFolder;
 	}
 	
 	// returnerer første fil med angitt navn eller endelse
@@ -76,6 +87,7 @@ public class Folder {
 	public static void main(String[] args) {
 		Folder root = new Folder("", null);
 		File rootFile = new File("README.txt", root);
+		Folder tmp = new Folder("tmp", root);
 		Folder folder1 = new Folder("Users", root);
 		Folder home1 = new Folder("hal", folder1);
 		File myProfileFile = new File("profile.png", home1);	
@@ -85,5 +97,18 @@ public class Folder {
 		System.out.println("Skulle være /Users/, var " + folder1.toString());
 		System.out.println("Skulle være /Users/hal/, var " + home1.toString());
 		System.out.println("Skulle være /Users/hal/profile.png, var " + myProfileFile.toString());
+
+		System.out.println("Skulle være true, var " + root.contains(folder1));
+		System.out.println("Skulle være true, var " + root.contains(rootFile));
+		System.out.println("Skulle være true, var " + root.contains(home1));
+
+		System.out.println("Skulle være false, var " + tmp.contains(folder1));
+		System.out.println("Skulle være false, var " + tmp.contains(rootFile));
+		System.out.println("Skulle være false, var " + tmp.contains(home1));
+		
+		folder1.move(tmp);
+		System.out.println("Skulle være /tmp/Users/, var " + folder1.toString());
+		myProfileFile.move(tmp);
+		System.out.println("Skulle være /tmp/profile.png, var " + myProfileFile.toString());
 	}
 }

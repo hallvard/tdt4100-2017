@@ -21,6 +21,13 @@ public class File {
 	
 	// flytter denne mappa over i targetFolder
 	public void move(Folder targetFolder) {
+		if (parentFolder != null) {
+			parentFolder.removeFile(this);
+		}
+		if (targetFolder != null) {
+			targetFolder.addFile(this);
+		}
+		parentFolder = targetFolder;
 	}
 
 	// denne skal utvides til å vise hele stien fra rot-noden og ned
