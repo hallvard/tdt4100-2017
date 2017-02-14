@@ -11,8 +11,8 @@ public class PlaylistTrack {
 	private int end;
 	
 	public PlaylistTrack(Track track, int start, int end) {
-		if (getPlayLength(track.getLength(), start, end) < 0) {
-			throw new IllegalArgumentException("Spillelengden kan ikke være negativ!");
+		if (getEnd(end, track.getLength()) < start) {
+			throw new IllegalArgumentException("End kan ikke være mindre enn start");
 		}
 		this.track = track;
 		this.start = start;
@@ -27,16 +27,24 @@ public class PlaylistTrack {
 		return track;
 	}
 
-	// hjelpemetode, beregner spillelengden for spesifikk lengde, start, end
-	private static int getPlayLength(int length, int start, int end) {
+	public int getStart() {
+		return start;
+	}
+	
+	public int getEnd() {
+		return getEnd(end, track.getLength());
+	}
+	
+	// hjelpemetode, beregner den effektive enden for spesifikk end og lengde
+	private static int getEnd(int end, int length) {
 		if (end <= 0) {
-			return length + end - start;
+			return length + end;
 		} else {
-			return end - start;
+			return end;
 		}
 	}
 	
 	public int getPlayLength() {
-		return getPlayLength(track.getLength(), start, end);
+		return getEnd(end, track.getLength()) - start;
 	}
 }
