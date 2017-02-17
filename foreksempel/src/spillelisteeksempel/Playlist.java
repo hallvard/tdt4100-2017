@@ -36,6 +36,7 @@ public class Playlist {
 				return false;
 			}
 		}
+		// hvis ingenting er galt, så er det rett
 		return true;
 	}
 	
@@ -43,7 +44,9 @@ public class Playlist {
 		return maxLength;
 	}
 	
-	private void checkPlayLength(int delta) {
+	// brukes for å validere en (potensiell) endring i lengden på en spilleliste
+	// delta er endringen en vil sjekke om er lov
+	void checkPlayLength(int delta) {
 		if (getPlayLength() + delta > maxLength) {
 			throw new IllegalArgumentException("Du er i ferd med å gjøre spillelista for lang");
 		}
@@ -97,22 +100,25 @@ public class Playlist {
 	}
 	
 	public void addTrack(Track track) {
-		PlaylistTrack pt = new PlaylistTrack(track);
+		PlaylistTrack pt = new PlaylistTrack(this, track);
+		// playLength vil øke med det nye objektets playLength, så det må sjekkes 
 		checkPlayLength(pt.getPlayLength());
+		// legg til nytt objekt, hvis unntak ikke er utløst
 		tracks.add(pt);
 	}
 
 	public void addTrack(Track track, int start, int end) {
-		PlaylistTrack pt = new PlaylistTrack(track, start, end);
+		PlaylistTrack pt = new PlaylistTrack(this, track, start, end);
+		// playLength vil øke med det nye objektets playLength, så det må sjekkes 
 		checkPlayLength(pt.getPlayLength());
+		// legg til nytt objekt, hvis unntak ikke er utløst
 		tracks.add(pt);
 	}
 
 	public void setTrackStartEnd(Track track, int start, int end) {
+		// endrer eksisterende PlaylistTrack-objekt 
 		PlaylistTrack pt = tracks.get(indexOfTrack(track));
-		int oldPlayLength = pt.getPlayLength();
-		int newPlayLength = pt.getPlayLength(start, end) - oldPlayLength;
-		checkPlayLength(newPlayLength - oldPlayLength);
+		// metoden sjekker selv at det er lov
 		pt.setStartEnd(start, end);
 	}
 

@@ -2,28 +2,40 @@ package spillelisteeksempel;
 
 public class PlaylistTrack {
 
+	// playlista som PlaylistTrack er en del av
+	// final angir at playlist settes én gang, i konstruktøren
+	private final Playlist playlist;
 	// sporet som PlaylistTrack er koblet til
-	private Track track;
+	// final angir at track settes én gang, i konstruktøren
+	private final Track track;
 	
 	// sporet spilles av fra start, som regnes fra starten
 	private int start;
 	// sporet spilles av til end, som regnes fra enden hvis den er <= 0, ellers fras tarten
 	private int end;
 	
-	public PlaylistTrack(Track track, int start, int end) {
+	public PlaylistTrack(Playlist playlist, Track track, int start, int end) {
+		checkStartEnd(track, start, end);
+		// konstruktøren trenger en referanse til Playlist-objektet,
+		// for å kunne sjekke om endringer i start og end er lov
+		this.playlist = playlist;
+		this.track = track;
+		this.start = start;
+		this.end = end;
+	}
+
+	// hjelpemetode for validering
+	private void checkStartEnd(Track track, int start, int end) {
 		if (end > track.getLength()) {
 			throw new IllegalArgumentException("End kan ikke være større enn lengden");
 		}
 		if (getEnd(end, track.getLength()) < start) {
 			throw new IllegalArgumentException("End kan ikke være mindre enn start");
 		}
-		this.track = track;
-		this.start = start;
-		this.end = end;
 	}
 	
-	public PlaylistTrack(Track track) {
-		this(track, 0, 0); // tilsvarer hele lengden
+	public PlaylistTrack(Playlist playlist, Track track) {
+		this(playlist, track, 0, 0); // tilsvarer hele lengden
 	}
 	
 	Track getTrack() {
@@ -35,12 +47,12 @@ public class PlaylistTrack {
 	}
 	
 	public void setStartEnd(int start, int end) {
-		if (end > track.getLength()) {
-			throw new IllegalArgumentException("End kan ikke være større enn lengden");
-		}
-		if (getEnd(end, track.getLength()) < start) {
-			throw new IllegalArgumentException("End kan ikke være mindre enn start");
-		}
+		// sjekker om start, end er gyldige, for dette objektet alene
+		checkStartEnd(track, start, end);
+		int oldPlayLength = this.getPlayLength();
+		int newPlayLength = this.getPlayLength(start, end);
+		// sjekker om den nye spillelengden totalt sett er lov
+		playlist.checkPlayLength(newPlayLength - oldPlayLength);
 		this.start = start;
 		this.end = end;
 	}
@@ -58,6 +70,7 @@ public class PlaylistTrack {
 		}
 	}
 	
+	// hjelpemetode, beregner spillelengden for spesifikke start- og end-verdier
 	int getPlayLength(int start, int end) {
 		return getEnd(end, track.getLength()) - start;
 	}
