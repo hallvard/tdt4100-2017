@@ -11,6 +11,9 @@ public class PlaylistTrack {
 	private int end;
 	
 	public PlaylistTrack(Track track, int start, int end) {
+		if (end > track.getLength()) {
+			throw new IllegalArgumentException("End kan ikke være større enn lengden");
+		}
 		if (getEnd(end, track.getLength()) < start) {
 			throw new IllegalArgumentException("End kan ikke være mindre enn start");
 		}
@@ -31,6 +34,17 @@ public class PlaylistTrack {
 		return start;
 	}
 	
+	public void setStartEnd(int start, int end) {
+		if (end > track.getLength()) {
+			throw new IllegalArgumentException("End kan ikke være større enn lengden");
+		}
+		if (getEnd(end, track.getLength()) < start) {
+			throw new IllegalArgumentException("End kan ikke være mindre enn start");
+		}
+		this.start = start;
+		this.end = end;
+	}
+	
 	public int getEnd() {
 		return getEnd(end, track.getLength());
 	}
@@ -44,7 +58,11 @@ public class PlaylistTrack {
 		}
 	}
 	
-	public int getPlayLength() {
+	int getPlayLength(int start, int end) {
 		return getEnd(end, track.getLength()) - start;
+	}
+
+	public int getPlayLength() {
+		return getPlayLength(start, end);
 	}
 }

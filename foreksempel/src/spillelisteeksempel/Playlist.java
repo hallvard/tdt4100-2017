@@ -43,6 +43,12 @@ public class Playlist {
 		return maxLength;
 	}
 	
+	private void checkPlayLength(int delta) {
+		if (getPlayLength() + delta > maxLength) {
+			throw new IllegalArgumentException("Du er i ferd med å gjøre spillelista for lang");
+		}
+	}
+
 	// summerer spillelengden til alle utsnittene
 	public int getPlayLength() {
 		int sum = 0;
@@ -62,7 +68,19 @@ public class Playlist {
 	public Track getTrack(int i) {
 		return tracks.get(i).getTrack();
 	}
+
+	public PlaylistTrack getPlaylistTrack(int i) {
+		return tracks.get(i);
+	}
 	
+	public int getTrackStart(int i) {
+		return tracks.get(i).getStart();
+	}
+
+	public int getTrackEnd(int i) {
+		return tracks.get(i).getEnd();
+	}
+
 	// på hvilken posisjon ligger PlaylistTrack-objektet som er koblet til track?
 	public int indexOfTrack(Track track) {
 		for (int i = 0; i < tracks.size(); i++) {
@@ -79,11 +97,23 @@ public class Playlist {
 	}
 	
 	public void addTrack(Track track) {
-		tracks.add(new PlaylistTrack(track));
+		PlaylistTrack pt = new PlaylistTrack(track);
+		checkPlayLength(pt.getPlayLength());
+		tracks.add(pt);
 	}
 
 	public void addTrack(Track track, int start, int end) {
-		tracks.add(new PlaylistTrack(track, start, end));
+		PlaylistTrack pt = new PlaylistTrack(track, start, end);
+		checkPlayLength(pt.getPlayLength());
+		tracks.add(pt);
+	}
+
+	public void setTrackStartEnd(Track track, int start, int end) {
+		PlaylistTrack pt = tracks.get(indexOfTrack(track));
+		int oldPlayLength = pt.getPlayLength();
+		int newPlayLength = pt.getPlayLength(start, end) - oldPlayLength;
+		checkPlayLength(newPlayLength - oldPlayLength);
+		pt.setStartEnd(start, end);
 	}
 
 	public void removeTrack(Track track) {
