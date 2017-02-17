@@ -350,7 +350,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions0_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'S1' failed after c = new Card('S', 1)", "S1", _string);
     
   }
@@ -373,7 +373,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions1_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'S13' failed after c = new Card('S', 13)", "S13", _string);
     
   }
@@ -396,7 +396,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions2_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'H1' failed after c = new Card('H', 1)", "H1", _string);
     
   }
@@ -419,7 +419,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions3_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'H13' failed after c = new Card('H', 13)", "H13", _string);
     
   }
@@ -442,7 +442,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions4_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'D1' failed after c = new Card('D', 1)", "D1", _string);
     
   }
@@ -465,7 +465,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions5_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'D13' failed after c = new Card('D', 13)", "D13", _string);
     
   }
@@ -488,7 +488,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions6_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'C1' failed after c = new Card('C', 1)", "C1", _string);
     
   }
@@ -511,7 +511,7 @@ public class CardTest extends TestCase {
   
   private void _test__toString_transitions7_effects0_state_objectTests0_test(final Card it) {
     
-    String _string = this.toString();
+    String _string = it.toString();
     assertEquals("toString == 'C13' failed after c = new Card('C', 13)", "C13", _string);
     
   }
