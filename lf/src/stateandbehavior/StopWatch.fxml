@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stateandbehavior.StopWatchController">
+   <children>
+      <HBox>
+         <children>
+            <Label fx:id="ticksOutput" text="Ticks: -1" />
+            <Label fx:id="timeOutput" text="Time: -1" />
+            <Label fx:id="lastLapTimeOutput" text="Last lap time: -1" />
+            <Label fx:id="lapTimeOutput" text="Lap time: -1" />
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleTickAction" text="Tick" />
+            <Button mnemonicParsing="false" onAction="#handleTick10Action" text="Tick 10" />
+            <Button mnemonicParsing="false" onAction="#handleStartRealTimerAction" text="Start real timer" />
+            <Button mnemonicParsing="false" onAction="#handleStartAction" text="Start" />
+            <Button mnemonicParsing="false" onAction="#handleLapAction" text="Lap" />
+            <Button mnemonicParsing="false" onAction="#handleStopAction" text="Stop" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
