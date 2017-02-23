@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="stateandbehavior.DigitController">
+	<HBox>
+		<TextField fx:id="baseInput" promptText="base"/>
+		<Button text="new Digit(base)" onAction="#handleNewDigitBase"/>
+	</HBox>
+	<HBox>
+		<Label  text="Digit: "/>
+		<Text fx:id="toStringOutput" text=""/>
+		<Button text="+" onAction="#handleIncrement"/>
+	</HBox>
+</VBox>

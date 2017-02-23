@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.shape.*?>
+
+
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="stateandbehavior.AccountController" style="-fx-padding: 0px 150px 0px 0px">
+	
+	<VBox spacing="15">
+		<HBox.margin>
+	        <Insets>
+	            <bottom>10</bottom>
+	            <top>10</top>
+	            <left>10</left>
+	            <right>10</right>
+	        </Insets>
+	    </HBox.margin>
+	    
+	    <Text fx:id="toStringText" text="LOL">
+	    	<font>
+                <Font name="Arial Black" size="16.0" />
+            </font>
+	    </Text>
+	    
+	    <HBox spacing="10">
+	    	<Label text="getBalance() =>"/>
+	    	<TextField fx:id="getBalanceTextField"/>
+	    </HBox>
+	    
+		
+		<HBox spacing="10" style="-fx-border-color: transparent transparent black transparent; -fx-padding: 0px 0px 10px 0px;">
+	    	<Label text="getInterestRate() =>"/>
+	    	<TextField fx:id="getInterestRateTextField"/>
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<TextField fx:id="depositTextField"/>
+	    	<Button onAction="#handleDeposit" text="Deposit"/>
+	    </HBox>
+	    
+	    <HBox spacing="10">
+	    	<TextField fx:id="setInterestRateTextField"/>
+	    	<Button onAction="#handleSetInterestRate" text="Set interest rate"/>
+	    </HBox>
+	    
+    	<Button onAction="#handleAddInterest" text="Add interest"/>
+		
+	</VBox>
+</HBox>
