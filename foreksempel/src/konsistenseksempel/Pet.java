@@ -1,6 +1,6 @@
 package konsistenseksempel;
 
-public class Pet {
+public class Pet{
 	
 	private String name;
 	
@@ -20,6 +20,9 @@ public class Pet {
 	}
 	
 	public void setOwner(Person owner) {
+		if(this.owner == owner){
+			return ; 
+		}
 		if (this.owner != null) {
 			this.owner.removePet(this);
 		}

@@ -59,5 +59,10 @@ public class Person {
 		person1.addPet(pet1);
 		System.out.println(pet1.getOwner() == person1);
 		System.out.println(person1.hasPet(pet1));
+		
+		person2.addPet(pet1);
+		System.out.println(pet1.getOwner() == person2);
+		System.out.println(! person1.hasPet(pet1));
+		System.out.println(person2.hasPet(pet1));
 	}
 }
