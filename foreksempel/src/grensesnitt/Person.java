@@ -1,7 +1,10 @@
 package grensesnitt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class Person {
 
@@ -22,6 +25,26 @@ public class Person {
 		return pets.contains(pet);
 	}
 	
+	//Sorterer liste ved å bruke CompareTo-metoden inne i Dog-klassen
+	public void printAndSortPets(){
+		
+		Collections.sort(pets);
+		
+		for(Pet pet: pets){
+			System.out.println(pet);
+		}
+
+	}
+	//Sorterer lista med å bruke DogComparator klassen, før den printer ut
+	public void printAndSortPetsByComparatorClass(){
+		PetComparator comparator = new PetComparator(); 
+		pets.sort(comparator);
+		
+		for(Pet pet: pets){
+			System.out.println(pet);
+		}
+	}
+	
 	public void addPet(Pet pet) {
 		if (hasPet(pet)) {
 			return;
@@ -39,6 +62,7 @@ public class Person {
 	}
 
 	public static void main(String[] args) {
+		Dog pluto = new Dog("Pluto"); 
 		Dog pet1 = new Dog("Wario");
 		Person person1 = new Person("Hallvard");
 		Person person2 = new Person("Jens");
@@ -64,5 +88,12 @@ public class Person {
 		System.out.println(pet1.getOwner() == person2);
 		System.out.println(! person1.hasPet(pet1));
 		System.out.println(person2.hasPet(pet1));
+		
+		Dog amund = new Dog("Amund"); 
+		person1.addPet(pluto); 
+		person1.addPet(pet1);
+		person1.addPet(amund);
+		person1.printAndSortPetsByComparatorClass();
+		
 	}
 }
