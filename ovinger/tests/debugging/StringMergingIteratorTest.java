@@ -1,6 +1,6 @@
-package interfaces;
+package debugging;
 
-import interfaces.StringMergingIterator;
+import debugging.StringMergingIterator;
 import java.util.ArrayList;
 import java.util.Iterator;
 import junit.framework.TestCase;
