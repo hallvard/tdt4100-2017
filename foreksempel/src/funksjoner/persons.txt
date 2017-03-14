@@ -1,0 +1,4 @@
+name:Hallvard Traetteberg; 	gender:M;	email:hallvard.traetteberg@ntnu.no;	birthday:Nov 16, 1966
+name:Marit Reitan; 			gender:F;	email:marit.reitan@ntnu.no
+name:Kari Nordkvinne; 		gender:F;	email:kari.nordkvinne@name.no;		birthday:Jan 1, 1900
+name:Ola Nordmann; 			gender:M;	email:ola.nordmann@name.no;			birthday:Jan 1, 1900
