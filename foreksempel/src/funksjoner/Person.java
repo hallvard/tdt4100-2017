@@ -42,6 +42,10 @@ public class Person {
 		return gender;
 	}
 
+	public boolean isFemale() {
+		return getGender() == 'F';
+	}
+	
 	public void setGender(char gender) {
 		if (! (gender == 'F' || gender == 'M' || gender == '\0')) {
 			throw new IllegalArgumentException(gender + " is not a valid gender");

@@ -81,5 +81,11 @@ public class PersonReg {
 		} catch (IOException e) {
 		}
 		System.out.println(personReg.findFirst(new GivenNameTester("Kari")));
+		System.out.println(personReg.findAll(new NtnuMailTester()));
+		System.out.println(personReg.findAll((t) -> {
+			String email = t.getEmail();
+			return (email != null && email.endsWith("@ntnu.no"));
+		}));
+		System.out.println(personReg.findAll(Person::isFemale));
 	}
 }
