@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.function.Function;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class PersonReg {
@@ -87,5 +89,20 @@ public class PersonReg {
 			return (email != null && email.endsWith("@ntnu.no"));
 		}));
 		System.out.println(personReg.findAll(Person::isFemale));
+		
+		// hvor mange kvinner er i registeret
+		System.out.println(personReg.persons.stream().filter(Person::isFemale).count());
+		// hvor langt er det lengste navnet
+		System.out.println(personReg.persons.stream().map(Person::getName).map(String::length).max((n1, n2) -> n1 - n2).get());
+		System.out.println(personReg.persons.stream().map(Person::getName).map(String::length).max(Comparator.naturalOrder()).get());
+		// hvor mange ulike domenenavn finnes det i e-postadressene
+		System.out.println(personReg.persons.stream().map(Person::getEmail).filter((email) -> email != null).map((email) -> email.substring(email.lastIndexOf('@'))).distinct().count());
+		System.out.println(personReg.persons.stream().map(Person::getEmail).filter(Objects::nonNull).map((email) -> email.substring(email.lastIndexOf('@'))).distinct().count());
+		// finnes det noen som er født på 60-tallet
+		System.out.println(personReg.persons.stream().anyMatch((p) -> {
+			Date birthday = p.getBirthday();
+			return birthday != null && birthday.getYear() >= 60 && birthday.getYear() <= 69;
+		}));
+		System.out.println(personReg.persons.stream().map(Person::getBirthday).filter(Objects::nonNull).map(Date::getYear).anyMatch((y) -> y >= 60 && y <= 69));
 	}
 }
