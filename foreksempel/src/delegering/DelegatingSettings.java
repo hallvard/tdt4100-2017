@@ -3,7 +3,11 @@ package delegering;
 public class DelegatingSettings implements ISettings {
 
 	private MapSettings local = new MapSettings();
-	private DelegatingSettings defaults = new DelegatingSettings();
+	private DelegatingSettings defaults = null;
+	
+	public DelegatingSettings(DelegatingSettings defaults) {
+		this.defaults = defaults;
+	}
 	
 	@Override
 	public boolean hasSetting(String name) {
