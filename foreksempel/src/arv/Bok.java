@@ -1,6 +1,6 @@
 package arv;
 
-public class Bok {
+public abstract class Bok {
 
 	private String tittel;
 	
@@ -10,9 +10,15 @@ public class Bok {
 	
 	@Override
 	public String toString() {
-		return "[Bok tittel=" + tittel + "]";
+		return "[" + this.getSjanger() + " " + this.getToStringAttributes() + "]";
 	}
 	
+	protected abstract String getSjanger();
+	
+	protected String getToStringAttributes() {
+		return "tittel=" + tittel;
+	}
+
 	public String getTittel() {
 		return tittel;
 	}

@@ -15,4 +15,9 @@ public class Tegneseriealbum extends Bok {
 	public void setAntallStriper(int antallStriper) {
 		this.antallStriper = antallStriper;
 	}
+
+	@Override
+	protected String getSjanger() {
+		return "Tegneseriealbum";
+	}
 }

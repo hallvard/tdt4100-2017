@@ -16,15 +16,24 @@ public class Ordbok extends Bok {
 		super(tittel);
 	}
 	
-	@Override
-	public String toString() {
-		return "[Ordbok tittel=" + getTittel() + ", antallOrd=" + antallOrd + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "[Ordbok " + super.toString() + ", antallOrd=" + antallOrd + "]";
+//	}
 	
 	@Override
-	public boolean isValidTitle(String s) {
-		return super.isValidTitle(s) && (! ulovligeTitler.contains(s));
+	protected String getSjanger() {
+		return "Ordbok";
 	}
+	@Override
+	protected String getToStringAttributes() {
+		return super.getToStringAttributes() + ", antallOrd=" + antallOrd;
+	}
+	
+//	@Override
+//	public boolean isValidTitle(String s) {
+//		return super.isValidTitle(s) && (! ulovligeTitler.contains(s));
+//	}
 	
 	@Override
 	public void setTittel(String tittel) {
