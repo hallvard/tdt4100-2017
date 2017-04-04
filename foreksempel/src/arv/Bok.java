@@ -13,6 +13,9 @@ public abstract class Bok {
 		return "[" + this.getSjanger() + " " + this.getToStringAttributes() + "]";
 	}
 	
+	// defineres her, men uten implementasjon
+	// må implementeres i en subklasse
+	// kan brukes i denne klassen
 	protected abstract String getSjanger();
 	
 	protected String getToStringAttributes() {
