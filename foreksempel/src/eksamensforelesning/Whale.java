@@ -2,7 +2,8 @@ package eksamensforelesning;
 
 public class Whale extends Animal{
 	
-	String race ;
+	private String race; 
+	
 	public Whale(String name, String race){
 		super(name, false, 20); 
 		this.race = race; 
@@ -11,6 +12,7 @@ public class Whale extends Animal{
 	
 	@Override
 	public void sayHello(){
+		
 		System.out.println("Whales cannot speak");
 	}
 	public void beaWhale(){
@@ -27,6 +29,7 @@ public class Whale extends Animal{
 		Whale rudolf = new Whale("Rudolf", "Blåhval"); 
 		rudolf.beaWhale(); 
 		Animal rudolf2 = (Animal) rudolf; 
+		rudolf.sayHello(); 
 		
 		
 	}
