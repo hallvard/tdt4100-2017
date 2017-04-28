@@ -34,7 +34,7 @@ public class Attraction implements Location{
 	private List<Customer> peopleOnBoard = new ArrayList<Customer>(); 
 	private List<Customer> peopleInQueue = new ArrayList<Customer>(); 
 	
-	public void addToQueue(Customer customer){
+	public boolean addToQueue(Customer customer){
 		if(isLegalRider(customer)){
 			if(peopleOnBoard.size()==maxAmountOfCustomers){
 				peopleInQueue.add(customer); 
@@ -42,16 +42,24 @@ public class Attraction implements Location{
 			else{
 				peopleOnBoard.add(customer); 
 			}
+			if(!(customer.getAttraction()==this)){
+				customer.takeAttraction(this);}
+			return true ; 
 	}
 		else{
-			customer.startCrying(); 
+			return false; 
 		}
 		}
 	
 	public void doneOnBoard(Customer customer){
 		peopleOnBoard.remove(customer); 
+		if(customer.getAttraction()==this){
+			customer.goOffAttraction(); }
 		if(peopleInQueue.size()>= 1){
-			peopleOnBoard.add(peopleInQueue.get(0)); }
+			peopleOnBoard.add(peopleInQueue.remove(0)); }
+	}
+	public boolean hasCustomer(Customer customer){
+		return peopleOnBoard.contains(customer) || peopleInQueue.contains(customer); 
 	}
 	
 	public boolean isLegalRider(Customer customer){
@@ -63,6 +71,17 @@ public class Attraction implements Location{
 	public int getLocation() {
 		return 100; 
 	} 
+	public String toString(){
+		String s = "people on board: \n"; 
+		for(Customer customer: peopleOnBoard){
+			s +=  customer.getName() + ", \n"; 
+		}
+		s += "people in queue: \n"; 
+		for(Customer customer: peopleInQueue){
+			s += ", " + customer.getName(); 
+		}
+		return s; 
+	}
 	
 	
 	
